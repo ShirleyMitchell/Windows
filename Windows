@@ -1,0 +1,21 @@
+import sys
+import os
+import files as files
+from cx_freeze import setup, Executable
+
+files = ['icon.png']
+
+target = Executable(
+    script="gui/gui.py",
+    base="Win32GUI",
+    icon="icon.png"
+)
+
+setup(
+    name="PythonGUI",
+    version="1.0",
+    description="Modern GUI",
+    author="Idan Noyshul",
+    options={"build_exe": {'include_files': files}},
+    executables=[target]
+)
